@@ -28,7 +28,7 @@
 <meta property="og:description" content="UPROPERTYUPROPERTY 用途广泛,它允许变量被复制、被序列化，并可从蓝图中进行访问。垃圾回收器还使用它们来追踪对 UObject 的引用数。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-05T17:29:23.000Z">
-<meta property="article:modified_time" content="2020-03-05T09:44:08.206Z">
+<meta property="article:modified_time" content="2020-03-05T09:49:15.696Z">
 <meta property="article:author" content="萌新小强">
 <meta property="article:tag" content="UPROPERTY">
 <meta name="twitter:card" content="summary">
@@ -216,7 +216,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-05 17:29:23 / 修改时间：09:44:08" itemprop="dateCreated datePublished" datetime="2020-03-05T17:29:23Z">2020-03-05</time>
+              <time title="创建时间：2020-03-05 17:29:23 / 修改时间：09:49:15" itemprop="dateCreated datePublished" datetime="2020-03-05T17:29:23Z">2020-03-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -241,7 +241,7 @@
       
         <h1 id="UPROPERTY"><a href="#UPROPERTY" class="headerlink" title="UPROPERTY"></a>UPROPERTY</h1><p>UPROPERTY 用途广泛,它允许变量被复制、被序列化，并可从蓝图中进行访问。垃圾回收器还使用它们来追踪对 UObject 的引用数。</p>
 <a id="more"></a>
-<h2 id="属性说明符"><a href="#属性说明符" class="headerlink" title="属性说明符"></a>属性说明符</h2><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AdvancedDisplay <span class="comment">//属性将被放置在其出现的任意面板的高级（下拉）部分中。</span></span><br></pre></td></tr></table></figure>
+<h2 id="属性说明符"><a href="#属性说明符" class="headerlink" title="属性说明符"></a>属性说明符</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UP::AdvancedDisplay <span class="comment">// 属性将被放置在其出现的任意面板的高级（下拉）部分中。</span></span><br><span class="line">UP::AssetRegistrySearchable <span class="comment">// 说明符说明此属性与其值将被自动添加到将此包含为成员变量的所有资源类实例的资源注册表。不可在结构体属性或参数上使用</span></span><br><span class="line">UP::BlueprintAssignable <span class="comment">// 只能与组播委托共用。公开属性在蓝图中指定。</span></span><br><span class="line">UP::BlueprintAuthorityOnly <span class="comment">// 此属性必须为一个组播委托。在蓝图中，其只接受带 BlueprintAuthorityOnly 标签的事件。</span></span><br><span class="line">UP::BlueprintCallable <span class="comment">// 仅用于组播委托。应公开属性在蓝图代码中调用。</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">UCLASS()</span><br><span class="line"><span class="keyword">class</span> <span class="symbol">MYPROJECT_API</span> <span class="symbol">AMyActor</span> : <span class="symbol">public</span> <span class="symbol">AActor</span></span><br><span class="line">&#123;</span><br><span class="line">	GENERATED_BODY()</span><br><span class="line">	</span><br><span class="line"><span class="keyword">public</span>:	</span><br><span class="line">	<span class="comment">// Sets default values for this actor's properties</span></span><br><span class="line">	AMyActor();</span><br><span class="line">    UPROPERTY(BlueprintReadWrite, Category = <span class="string">"Laji"</span>)</span><br><span class="line">            <span class="built_in">float</span> laji_huahua;</span><br></pre></td></tr></table></figure>
     </div>
