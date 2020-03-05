@@ -350,7 +350,7 @@ td {
 }
 .toggle.toggle-arrow .toggle-line-first {
   top: 2px;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
   width: 50%;
 }
 .toggle.toggle-arrow .toggle-line-middle {
@@ -358,7 +358,7 @@ td {
 }
 .toggle.toggle-arrow .toggle-line-last {
   top: -2px;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   width: 50%;
 }
 .toggle.toggle-close .toggle-line-first {
