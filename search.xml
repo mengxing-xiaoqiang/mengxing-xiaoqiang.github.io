@@ -12,7 +12,7 @@
 <h2 id="我是个垃圾滑滑-5"><a href="#我是个垃圾滑滑-5" class="headerlink" title="我是个垃圾滑滑"></a>我是个垃圾滑滑</h2><figure class="highlight xl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> unreal</span><br><span class="line">unreal.<span class="built_in">log</span>(<span class="string">"我是个垃圾滑滑"</span>)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>垃圾滑滑</category>
+        <category>垃圾</category>
       </categories>
       <tags>
         <tag>垃圾</tag>
