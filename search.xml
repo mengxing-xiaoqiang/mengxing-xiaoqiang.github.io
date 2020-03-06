@@ -8,7 +8,9 @@
   <entry>
     <title>UE4断言</title>
     <url>/2020/03/06/UE4%E6%96%AD%E8%A8%80/</url>
-    <content><![CDATA[<h1 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h1><h2 id="check"><a href="#check" class="headerlink" title="check"></a>check</h2><p>check()中填入false或0或NULL都会被断掉</p>
+    <content><![CDATA[<h1 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h1><p>官方链接：(<a href="https://docs.unrealengine.com/zh-CN/Programming/Assertions/index.html" target="_blank" rel="noopener">https://docs.unrealengine.com/zh-CN/Programming/Assertions/index.html</a>)</p>
+<p>断言是一种工具，用于确认一段给定代码所依赖的假设。简单而言，它可确认指针不为 NULL；复杂而言，它可确认特定函数无法被重新进入。UE4 提供一系列宏，以执行这些类型的确认。它们为宏，以便在特定编译配置中进行译出（出于性能因素或因为最终版本中不需要它们）。在以下路径中可查看宏：<br>/UE4/Engine/Source/Runtime/Core/Public/Misc/AssertionMacros.h.<br>运行时断言宏有三种类型：停止执行、在调试版本中停止执行和不停止执行报告错误。第一种和第三种类型的编译取决于 DO_CHECK 定义。第二种类型的编译使用 DO_GUARD_SLOW 定义。如任意定义设为 0，宏将被禁用且不影响执行。<br>我们一起来看看断言宏的第一类。如断言不为 true，以下宏将全部停止执行。如在调试器中运行，断言将导致断点的出现，以便查看如何到达此点。</p>
+<h2 id="check"><a href="#check" class="headerlink" title="check"></a>check</h2><p>check()中填入false或0或NULL都会被断掉</p>
 <figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">AActor* Test = nullptr<span class="comment">;</span></span><br><span class="line">check(<span class="name">Test</span> <span class="symbol">&amp;&amp;</span> <span class="string">"Test 不能为空指针"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="verifyf"><a href="#verifyf" class="headerlink" title="verifyf"></a>verifyf</h2><p>verifyf和check完全相同</p>
