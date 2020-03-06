@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"mengxinxiaoqiang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="智能指针共享引用 是一类强大且不可为空的 智能指针，其被用于引擎的 Uobject 系统外的数据对象。此意味无法重置共享引用、向其指定空对象，或创建空白引用。因此共享引用固定包含有效对象，甚至未拥有 IsValid 方法。在共享引用和 [共享指针]（Shared Pointers） 间选择时，除非需要空白或可为空的对象，否则共享引用为优先选项。如需可能空白或可为空的引用，则应使用共享指针。与标准的">
+  <meta name="description" content="共享指针共享引用 是一类强大且不可为空的 智能指针，其被用于引擎的 Uobject 系统外的数据对象。此意味无法重置共享引用、向其指定空对象，或创建空白引用。因此共享引用固定包含有效对象，甚至未拥有 IsValid 方法。在共享引用和 [共享指针]（Shared Pointers） 间选择时，除非需要空白或可为空的对象，否则共享引用为优先选项。如需可能空白或可为空的引用，则应使用共享指针。与标准的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UE4共享指针">
 <meta property="og:url" content="https://mengxinxiaoqiang.github.io/2020/03/06/UE4%E5%85%B1%E4%BA%AB%E6%8C%87%E9%92%88/index.html">
 <meta property="og:site_name" content="萌新小强的Unreal日常">
-<meta property="og:description" content="智能指针共享引用 是一类强大且不可为空的 智能指针，其被用于引擎的 Uobject 系统外的数据对象。此意味无法重置共享引用、向其指定空对象，或创建空白引用。因此共享引用固定包含有效对象，甚至未拥有 IsValid 方法。在共享引用和 [共享指针]（Shared Pointers） 间选择时，除非需要空白或可为空的对象，否则共享引用为优先选项。如需可能空白或可为空的引用，则应使用共享指针。与标准的">
+<meta property="og:description" content="共享指针共享引用 是一类强大且不可为空的 智能指针，其被用于引擎的 Uobject 系统外的数据对象。此意味无法重置共享引用、向其指定空对象，或创建空白引用。因此共享引用固定包含有效对象，甚至未拥有 IsValid 方法。在共享引用和 [共享指针]（Shared Pointers） 间选择时，除非需要空白或可为空的对象，否则共享引用为优先选项。如需可能空白或可为空的引用，则应使用共享指针。与标准的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mengxinxiaoqiang.github.io/images/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1.png">
 <meta property="article:published_time" content="2020-03-06T15:41:55.000Z">
-<meta property="article:modified_time" content="2020-03-06T08:29:01.583Z">
+<meta property="article:modified_time" content="2020-03-06T08:47:34.993Z">
 <meta property="article:author" content="萌新小强">
 <meta property="article:tag" content="游戏">
 <meta name="twitter:card" content="summary">
@@ -218,7 +218,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-06 15:41:55 / 修改时间：08:29:01" itemprop="dateCreated datePublished" datetime="2020-03-06T15:41:55Z">2020-03-06</time>
+              <time title="创建时间：2020-03-06 15:41:55 / 修改时间：08:47:34" itemprop="dateCreated datePublished" datetime="2020-03-06T15:41:55Z">2020-03-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -245,17 +245,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h1><p>共享引用 是一类强大且不可为空的 智能指针，其被用于引擎的 Uobject 系统外的数据对象。此意味无法重置共享引用、向其指定空对象，或创建空白引用。因此共享引用固定包含有效对象，甚至未拥有 IsValid 方法。在共享引用和 [共享指针]（Shared Pointers） 间选择时，除非需要空白或可为空的对象，否则共享引用为优先选项。如需可能空白或可为空的引用，则应使用共享指针。<br>与标准的C++引用不同，可在创建后将共享引用重新指定到另一对象。</p>
+        <h1 id="共享指针"><a href="#共享指针" class="headerlink" title="共享指针"></a>共享指针</h1><p>共享引用 是一类强大且不可为空的 智能指针，其被用于引擎的 Uobject 系统外的数据对象。此意味无法重置共享引用、向其指定空对象，或创建空白引用。因此共享引用固定包含有效对象，甚至未拥有 IsValid 方法。在共享引用和 [共享指针]（Shared Pointers） 间选择时，除非需要空白或可为空的对象，否则共享引用为优先选项。如需可能空白或可为空的引用，则应使用共享指针。<br>与标准的C++引用不同，可在创建后将共享引用重新指定到另一对象。</p>
 <a id="more"></a>
+
 <p>继承至UObject,会被回收,只有不是继承至UObject的才需要共享指针</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TSharedPtr<span class="params">&lt;AActor&gt;</span><span class="comment">//这样是矛盾的，不兼容的,因为AActor继承至UObject会被智能回收掉</span></span><br></pre></td></tr></table></figure>
 <p>如果不是继承至UObject的class，一定要用共享指针,共享指针是不可以被复制的,智能指针是可以等于NULL的</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="symbol">TaskA</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">int</span>32 a;</span><br><span class="line">	<span class="built_in">float</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">UCLASS()</span><br><span class="line"><span class="keyword">class</span> <span class="symbol">DEBUGPJ_API</span> <span class="symbol">AMyActor</span> : <span class="symbol">public</span> <span class="symbol">AActor</span></span><br><span class="line">&#123;</span><br><span class="line">	GENERATED_BODY()</span><br><span class="line">	</span><br><span class="line"><span class="keyword">public</span>:	</span><br><span class="line">	<span class="comment">// Sets default values for this actor's properties</span></span><br><span class="line">	AMyActor();</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="comment">// Called when the game starts or when spawned</span></span><br><span class="line">	virtual <span class="built_in">void</span> BeginPlay() <span class="keyword">override</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:	</span><br><span class="line">	<span class="comment">// Called every frame</span></span><br><span class="line">	virtual <span class="built_in">void</span> Tick(<span class="built_in">float</span> DeltaTime) <span class="keyword">override</span>;</span><br><span class="line"></span><br><span class="line">	TSharedPtr&lt;TaskA&gt; Task_A;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TSharedPtr&lt;TaskA&gt; Task_A<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
 <p>在使用TArray时一定要把不可复制性带进去</p>
 <figure class="highlight bnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TArray<span class="attribute">&lt;TSharedPtr&lt;TaskA&gt;</span>&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>先判断是否有效,在调用里面内容的时候，最好是Task_A.Get()-&gt;a;,如果直接用Task_A-&gt;a;,会容易引发崩溃-&gt;操作符重载了一个check的断言</p>
 <p><img src="/images/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1.png" alt="智能指针_1"></p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void AMyActor::<span class="constructor">TaskAA()</span></span><br><span class="line">&#123;</span><br><span class="line">	Task_A = <span class="constructor">MakeShareable(<span class="params">new</span> TaskA()</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (Task_A.<span class="constructor">IsValid()</span><span class="operator"> || </span>Task_A.<span class="constructor">Get()</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		Task_A.<span class="constructor">Get()</span>-&gt;a;</span><br><span class="line">		<span class="comment">//Task_A-&gt;a;</span></span><br><span class="line">		<span class="comment">//销毁</span></span><br><span class="line">		Task_A.<span class="constructor">Reset()</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="普通指针转共享指针"><a href="#普通指针转共享指针" class="headerlink" title="普通指针转共享指针"></a>普通指针转共享指针</h3><p>用MakeShareable</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TaskA* NewTaskA = new TaskA()<span class="comment">;</span></span><br><span class="line">Task_A = MakeShareable(<span class="name">NewTaskA</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -339,7 +345,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#智能指针"><span class="nav-number">1.</span> <span class="nav-text">智能指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">1.1.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#共享指针"><span class="nav-number">1.</span> <span class="nav-text">共享指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明"><span class="nav-number">1.1.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通指针转共享指针"><span class="nav-number">1.2.1.</span> <span class="nav-text">普通指针转共享指针</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
