@@ -17,8 +17,9 @@
 <p><img src="/images/UPROPERTY/UPROPERTY_2.png" alt="UPROPERTY_1"></p>
 <h3 id="VisibleInstanceOnly"><a href="#VisibleInstanceOnly" class="headerlink" title="VisibleInstanceOnly"></a>VisibleInstanceOnly</h3><figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">UPROPERTY(<span class="name">VisibleInstanceOnly</span>, Category = <span class="string">"Test"</span>)</span><br><span class="line">    bool Test<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/UPROPERTY/UPROPERTY_3.png" alt="UPROPERTY_1"></p>
-<p><a href="https://docs.unrealengine.com/zh-CN/Programming/UnrealArchitecture/Reference/Properties/index.html" target="_blank" rel="noopener">官方链接</a></p>
-]]></content>
+<h3 id="BlueprintReadWrite"><a href="#BlueprintReadWrite" class="headerlink" title="BlueprintReadWrite"></a>BlueprintReadWrite</h3><figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">UPROPERTY</span>(<span class="keyword">BlueprintReadWrite, </span>Category = <span class="string">"Test"</span>)</span><br><span class="line">    <span class="keyword">bool </span>Test<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/UPROPERTY/UPROPERTY_4.png" alt="UPROPERTY_1"></p>
+<h2 id="官方链接"><a href="#官方链接" class="headerlink" title="官方链接"></a><a href="https://docs.unrealengine.com/zh-CN/Programming/UnrealArchitecture/Reference/Properties/index.html" target="_blank" rel="noopener">官方链接</a></h2>]]></content>
       <categories>
         <category>UE4</category>
       </categories>
