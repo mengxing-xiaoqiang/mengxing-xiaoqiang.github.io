@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>UE4智能指针</title>
-    <url>/2020/03/06/UE4%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</url>
+    <title>UE4共享引用</title>
+    <url>/2020/03/07/UE4%E5%85%B1%E4%BA%AB%E5%BC%95%E7%94%A8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>UE4</category>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UE4共享指针</title>
+    <url>/2020/03/06/UE4%E5%85%B1%E4%BA%AB%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<h1 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h1><p>共享引用 是一类强大且不可为空的 智能指针，其被用于引擎的 Uobject 系统外的数据对象。此意味无法重置共享引用、向其指定空对象，或创建空白引用。因此共享引用固定包含有效对象，甚至未拥有 IsValid 方法。在共享引用和 [共享指针]（Shared Pointers） 间选择时，除非需要空白或可为空的对象，否则共享引用为优先选项。如需可能空白或可为空的引用，则应使用共享指针。<br>与标准的C++引用不同，可在创建后将共享引用重新指定到另一对象。</p>
 <a id="more"></a>
 <p>继承至UObject,会被回收,只有不是继承至UObject的才需要共享指针</p>
@@ -13,7 +25,7 @@
 <figure class="highlight bnf"><table><tr><td class="code"><pre><span class="line">TArray<span class="attribute">&lt;TSharedPtr&lt;TaskA&gt;</span>&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>先判断是否有效,在调用里面内容的时候，最好是Task_A.Get()-&gt;a;,如果直接用Task_A-&gt;a;,会容易引发崩溃-&gt;操作符重载了一个check的断言</p>
 <p><img src="/images/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88_1.png" alt="智能指针_1"></p>
-<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">void AMyActor::TaskAA<span class="comment">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="comment">(Task_A.IsValid()</span> || Task_A.Get<span class="comment">()</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		Task_A.Get<span class="comment">()</span>-&gt;a;</span><br><span class="line">        <span class="comment">//Task_A-&gt;a;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">void AMyActor::<span class="constructor">TaskAA()</span></span><br><span class="line">&#123;</span><br><span class="line">	Task_A = <span class="constructor">MakeShareable(<span class="params">new</span> TaskA()</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (Task_A.<span class="constructor">IsValid()</span><span class="operator"> || </span>Task_A.<span class="constructor">Get()</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		Task_A.<span class="constructor">Get()</span>-&gt;a;</span><br><span class="line">		<span class="comment">//Task_A-&gt;a;</span></span><br><span class="line">		<span class="comment">//销毁</span></span><br><span class="line">		Task_A.<span class="constructor">Reset()</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>UE4</category>
         <category>笔记</category>
