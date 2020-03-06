@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>UE4智能指针</title>
+    <url>/2020/03/06/UE4%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>UE4断言</title>
     <url>/2020/03/06/UE4%E6%96%AD%E8%A8%80/</url>
     <content><![CDATA[<h1 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h1><h2 id="check"><a href="#check" class="headerlink" title="check"></a>check</h2><p>check()中填入false或0或NULL都会被断掉</p>
 <figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">AActor* Test = nullptr<span class="comment">;</span></span><br><span class="line">check(<span class="name">Test</span> <span class="symbol">&amp;&amp;</span> <span class="string">"Test 不能为空指针"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="verifyf"><a href="#verifyf" class="headerlink" title="verifyf"></a>verifyf</h2><p>verifyf和check完全相同</p>
 <figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">verify(<span class="name">Test</span> != nullptr)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <h2 id="checkf"><a href="#checkf" class="headerlink" title="checkf"></a>checkf</h2><p>checkf和check完全相同,在调试时可以打印额外的信息</p>
