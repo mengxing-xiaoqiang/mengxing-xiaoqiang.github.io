@@ -12,9 +12,9 @@
 
 
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">UPROPERTY(<span class="name">VisibleAnywhere</span>, Category = <span class="string">"Test"</span>)</span><br><span class="line">    bool Test<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p><img src="D:%5CMyBlog%5Cpublic%5Cimages%5CUPROPERTY_1.png" alt="UPROPERTY_1"></p>
+<p><img src="/images/UPROPERTY_1.png" alt="UPROPERTY_1"></p>
 <p><a href="https://docs.unrealengine.com/zh-CN/Programming/UnrealArchitecture/Reference/Properties/index.html" target="_blank" rel="noopener">官方链接</a></p>
-<center> [官方链接](https://docs.unrealengine.com/zh-CN/Programming/UnrealArchitecture/Reference/Properties/index.html) </center>]]></content>
+<center>[官方链接](https://docs.unrealengine.com/zh-CN/Programming/UnrealArchitecture/Reference/Properties/index.html)</center>]]></content>
       <categories>
         <category>UE4</category>
       </categories>
