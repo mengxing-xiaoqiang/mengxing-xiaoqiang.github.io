@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>UE4断言</title>
+    <url>/2020/03/06/UE4%E6%96%AD%E8%A8%80/</url>
+    <content><![CDATA[<h1 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h1><h2 id="check"><a href="#check" class="headerlink" title="check"></a>check</h2><p>check()中填入false或0或NULL都会被断掉</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">AActor* Test = nullptr<span class="comment">;</span></span><br><span class="line">check(<span class="name">Test</span> <span class="symbol">&amp;&amp;</span> <span class="string">"Test 不能为空指针"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h2 id="verifyf"><a href="#verifyf" class="headerlink" title="verifyf"></a>verifyf</h2><p>verifyf和check完全相同</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">verify(<span class="name">Test</span> != nullptr)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h2 id="checkf"><a href="#checkf" class="headerlink" title="checkf"></a>checkf</h2><p>checkf和check完全相同,在调试时可以打印额外的信息</p>
+<figure class="highlight erlang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">checkf</span><span class="params">(Test, TEXT(<span class="string">"Test &amp;s"</span>)</span>, *<span class="title">this</span>-&gt;</span>GetName());</span><br></pre></td></tr></table></figure>
+<h2 id="checkNoentry"><a href="#checkNoentry" class="headerlink" title="checkNoentry"></a>checkNoentry</h2><p>进入当前函数就会被断掉</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AMyPawn_huauha::BeginPlay</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//Super::BeginPlay();</span></span><br><span class="line">	checkNoEntry();</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="checkNoReentry"><a href="#checkNoReentry" class="headerlink" title="checkNoReentry"></a>checkNoReentry</h2><p>会检测当前函数是否执行了两次，第一次运行是没有问题的，第二次运行就会被断掉</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AMyPawn_huauha::BeginPlay</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//Super::BeginPlay();</span></span><br><span class="line">	checkNoReentry();</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="checkNoRecursion"><a href="#checkNoRecursion" class="headerlink" title="checkNoRecursion"></a>checkNoRecursion</h2><p>检测当前函数有没有递归，如果有就会被断掉</p>
+<figure class="highlight isbl"><table><tr><td class="code"><pre><span class="line"><span class="variable">void</span> <span class="variable">AMyPawn_huauha</span>::<span class="function"><span class="title">BeginPlay</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Super::BeginPlay();</span></span><br><span class="line">	<span class="function"><span class="title">checkNoRecursion</span>();</span></span><br><span class="line"><span class="function">	<span class="title">BeginPlay</span>();</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="ensure"><a href="#ensure" class="headerlink" title="ensure"></a>ensure</h2><p>类似于断点,不是直接崩溃,而是生成一个断点,可以继续往下走,用法和check一样</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">ensure(<span class="number">0</span> <span class="symbol">&amp;&amp;</span> <span class="string">"Test"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ensureMsgf"><a href="#ensureMsgf" class="headerlink" title="ensureMsgf"></a>ensureMsgf</h2><p>类似于断点,不是直接崩溃,而是生成一个断点,可以继续往下走,用法和checkf一样,这两个和check最大的不同就是程序不会崩溃</p>
+<figure class="highlight erlang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">ensureMsgf</span><span class="params">(<span class="number">0</span> TEXT(<span class="string">"%s"</span>)</span>,<span class="title">this</span>-&gt;</span>GetName());</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>UE4</category>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UE4游戏架构</title>
     <url>/2020/03/06/UE4%E6%B8%B8%E6%88%8F%E6%9E%B6%E6%9E%84/</url>
     <content><![CDATA[<h1 id="UE4MMoRPG游戏-Online"><a href="#UE4MMoRPG游戏-Online" class="headerlink" title="UE4MMoRPG游戏(Online)"></a>UE4MMoRPG游戏(Online)</h1><p>客户端其实就是对服务端一个粗略的模范</p>

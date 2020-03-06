@@ -20,32 +20,33 @@
     var CONFIG = {"hostname":"mengxinxiaoqiang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="人类的悲欢并不相通，我只觉得他们吵闹">
-<meta property="og:type" content="website">
-<meta property="og:title" content="萌新小强的Unreal日常">
-<meta property="og:url" content="https://mengxinxiaoqiang.github.io/index.html">
+  <meta name="description" content="断言checkcheck()中填入false或0或NULL都会被断掉 12AActor* Test &#x3D; nullptr;check(Test &amp;&amp; &quot;Test 不能为空指针&quot;); verifyfverifyf和check完全相同 1verify(Test !&#x3D; nullptr); checkfcheckf和check完全相同,在调试时可以打印额外的信息 1checkf(Test,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UE4断言">
+<meta property="og:url" content="https://mengxinxiaoqiang.github.io/2020/03/06/UE4%E6%96%AD%E8%A8%80/index.html">
 <meta property="og:site_name" content="萌新小强的Unreal日常">
-<meta property="og:description" content="人类的悲欢并不相通，我只觉得他们吵闹">
+<meta property="og:description" content="断言checkcheck()中填入false或0或NULL都会被断掉 12AActor* Test &#x3D; nullptr;check(Test &amp;&amp; &quot;Test 不能为空指针&quot;); verifyfverifyf和check完全相同 1verify(Test !&#x3D; nullptr); checkfcheckf和check完全相同,在调试时可以打印额外的信息 1checkf(Test,">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-06T15:16:08.000Z">
+<meta property="article:modified_time" content="2020-03-06T07:38:19.942Z">
 <meta property="article:author" content="萌新小强">
-<meta property="article:tag" content="DCC">
-<meta property="article:tag" content=" Unreal 开发">
+<meta property="article:tag" content="游戏">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://mengxinxiaoqiang.github.io/">
+<link rel="canonical" href="https://mengxinxiaoqiang.github.io/2020/03/06/UE4%E6%96%AD%E8%A8%80/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false
+    isHome : false,
+    isPost : true
   };
 </script>
 <script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
-  <title>萌新小强的Unreal日常</title>
+  <title>UE4断言 | 萌新小强的Unreal日常</title>
   
 
 
@@ -187,10 +188,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://mengxinxiaoqiang.github.io/2020/03/06/UE4%E6%96%AD%E8%A8%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -204,8 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/06/UE4%E6%96%AD%E8%A8%80/" class="post-title-link" itemprop="url">UE4断言</a>
+          UE4断言
         </h1>
 
         <div class="post-meta">
@@ -243,7 +243,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h1><h2 id="check"><a href="#check" class="headerlink" title="check"></a>check</h2><p>check()中填入false或0或NULL都会被断掉</p>
+        <h1 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h1><h2 id="check"><a href="#check" class="headerlink" title="check"></a>check</h2><p>check()中填入false或0或NULL都会被断掉</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AActor* Test = nullptr<span class="comment">;</span></span><br><span class="line">check(<span class="name">Test</span> <span class="symbol">&amp;&amp;</span> <span class="string">"Test 不能为空指针"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <h2 id="verifyf"><a href="#verifyf" class="headerlink" title="verifyf"></a>verifyf</h2><p>verifyf和check完全相同</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">verify(<span class="name">Test</span> != nullptr)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
@@ -260,190 +260,36 @@
 
 <h2 id="ensureMsgf"><a href="#ensureMsgf" class="headerlink" title="ensureMsgf"></a>ensureMsgf</h2><p>类似于断点,不是直接崩溃,而是生成一个断点,可以继续往下走,用法和checkf一样,这两个和check最大的不同就是程序不会崩溃</p>
 <figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">ensureMsgf</span><span class="params">(<span class="number">0</span> TEXT(<span class="string">"%s"</span>)</span>,<span class="title">this</span>-&gt;</span>GetName());</span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag"># 游戏</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mengxinxiaoqiang.github.io/2020/03/06/UE4%E6%B8%B8%E6%88%8F%E6%9E%B6%E6%9E%84/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miaomiao.jpg">
-      <meta itemprop="name" content="萌新小强">
-      <meta itemprop="description" content="人类的悲欢并不相通，我只觉得他们吵闹">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="萌新小强的Unreal日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/06/UE4%E6%B8%B8%E6%88%8F%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">UE4游戏架构</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-06 13:11:42 / 修改时间：06:05:57" itemprop="dateCreated datePublished" datetime="2020-03-06T13:11:42Z">2020-03-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/UE4/" itemprop="url" rel="index"><span itemprop="name">UE4</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/UE4/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="UE4MMoRPG游戏-Online"><a href="#UE4MMoRPG游戏-Online" class="headerlink" title="UE4MMoRPG游戏(Online)"></a>UE4MMoRPG游戏(Online)</h1><p>客户端其实就是对服务端一个粗略的模范</p>
-<h2 id="World"><a href="#World" class="headerlink" title="World"></a>World</h2><p>一个容器,容器里容纳了所有物体,这些物体都有一个特点就是继承至Actor</p>
-<h3 id="GameLnstance"><a href="#GameLnstance" class="headerlink" title="GameLnstance"></a>GameLnstance</h3><p>一个游戏的实例,凌驾于所有游戏之上,再切换关卡的时候GameLnstance里的数据依然保留,需要在切换关卡保留的数据可以存放在GameLnstance</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/06/UE4%E6%B8%B8%E6%88%8F%E6%9E%B6%E6%9E%84/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/06/UE4%E6%B8%B8%E6%88%8F%E6%9E%B6%E6%9E%84/" rel="prev" title="UE4游戏架构">
+      <i class="fa fa-chevron-left"></i> UE4游戏架构
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://mengxinxiaoqiang.github.io/2020/03/06/Unreal-UPROPERTY/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miaomiao.jpg">
-      <meta itemprop="name" content="萌新小强">
-      <meta itemprop="description" content="人类的悲欢并不相通，我只觉得他们吵闹">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="萌新小强的Unreal日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/06/Unreal-UPROPERTY/" class="post-title-link" itemprop="url">UPROPERTY</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-05 17:29:23" itemprop="dateCreated datePublished" datetime="2020-03-05T17:29:23Z">2020-03-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-06 06:05:57" itemprop="dateModified" datetime="2020-03-06T06:05:57Z">2020-03-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/UE4/" itemprop="url" rel="index"><span itemprop="name">UE4</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/UE4/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="UPROPERTY"><a href="#UPROPERTY" class="headerlink" title="UPROPERTY"></a>UPROPERTY</h1><p>UPROPERTY 用途广泛,它允许变量被复制、被序列化，并可从蓝图中进行访问.垃圾回收器还使用它们来追踪对 UObject 的引用数.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/06/Unreal-UPROPERTY/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
@@ -494,6 +340,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#断言"><span class="nav-number">1.</span> <span class="nav-text">断言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#check"><span class="nav-number">1.1.</span> <span class="nav-text">check</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#verifyf"><span class="nav-number">1.2.</span> <span class="nav-text">verifyf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#checkf"><span class="nav-number">1.3.</span> <span class="nav-text">checkf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#checkNoentry"><span class="nav-number">1.4.</span> <span class="nav-text">checkNoentry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#checkNoReentry"><span class="nav-number">1.5.</span> <span class="nav-text">checkNoReentry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#checkNoRecursion"><span class="nav-number">1.6.</span> <span class="nav-text">checkNoRecursion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ensure"><span class="nav-number">1.7.</span> <span class="nav-text">ensure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ensureMsgf"><span class="nav-number">1.8.</span> <span class="nav-text">ensureMsgf</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
