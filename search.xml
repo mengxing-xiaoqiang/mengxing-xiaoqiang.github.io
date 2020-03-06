@@ -3,12 +3,20 @@
   <entry>
     <title>UE4游戏架构</title>
     <url>/2020/03/06/UE4%E6%B8%B8%E6%88%8F%E6%9E%B6%E6%9E%84/</url>
-    <content><![CDATA[<h1 id="UE4MMoRPG游戏-Online"><a href="#UE4MMoRPG游戏-Online" class="headerlink" title="UE4MMoRPG游戏(Online)"></a>UE4MMoRPG游戏(Online)</h1><h2 id="World"><a href="#World" class="headerlink" title="World"></a>World</h2><p>一个容器,容器里容纳了所有物体,这些物体都有一个特点就是继承至Actor</p>
-<h3 id="GameLnstance"><a href="#GameLnstance" class="headerlink" title="GameLnstance"></a>GameLnstance</h3><p>一个游戏的实例,凌驾于所有游戏之上，再切换关卡的时候GameLnstance里的数据依然保留,需要在切换关卡保留的数据可以存放在GameLnstance</p>
+    <content><![CDATA[<h1 id="UE4MMoRPG游戏-Online"><a href="#UE4MMoRPG游戏-Online" class="headerlink" title="UE4MMoRPG游戏(Online)"></a>UE4MMoRPG游戏(Online)</h1><p>客户端其实就是对服务端一个粗略的模范</p>
+<h2 id="World"><a href="#World" class="headerlink" title="World"></a>World</h2><p>一个容器,容器里容纳了所有物体,这些物体都有一个特点就是继承至Actor</p>
+<h3 id="GameLnstance"><a href="#GameLnstance" class="headerlink" title="GameLnstance"></a>GameLnstance</h3><p>一个游戏的实例,凌驾于所有游戏之上,再切换关卡的时候GameLnstance里的数据依然保留,需要在切换关卡保留的数据可以存放在GameLnstance</p>
 <a id="more"></a>
 <h3 id="GameMode"><a href="#GameMode" class="headerlink" title="GameMode"></a>GameMode</h3><p>GameMode如果在联网状态下是一个服务端(Server),客户端不能访问</p>
 <h3 id="GameSession"><a href="#GameSession" class="headerlink" title="GameSession"></a>GameSession</h3><p>GameSession更像一个房间,让玩家进入,加入游戏,存在于服务端</p>
 <h3 id="GameState"><a href="#GameState" class="headerlink" title="GameState"></a>GameState</h3><p>GameState相当于一个全局的数据管理,在客户端也存在一份，可以和客户端实时同步,可以被客户端和服务端访问</p>
+<h3 id="PlayerController"><a href="#PlayerController" class="headerlink" title="PlayerController"></a>PlayerController</h3><p>PlayerController是非常重要的,它关联着服务端和客户端,客户端是通过Controller来向服务端发请求,用它来控制Pawn<br>包含:<br>    输出响应控制<br>    旁观者<br>    替换角色<br>    网络连接<br>    GM命令<br>    声音<br>    语言<br>    射线<br>    客户端显示HUD<br>    视口<br>    相机管理<br>    屏幕震动<br>    作弊管理<br>    客户端和服务端都存在<br>    执行客户端逻辑和服务端逻辑请求</p>
+<h3 id="PlayerState"><a href="#PlayerState" class="headerlink" title="PlayerState"></a>PlayerState</h3><p>掌管玩家的一些数据，一个角色的攻击力,防御力,Buff以及其他的一些数据,需要通过PlayerController来访问</p>
+<h3 id="Pawn"><a href="#Pawn" class="headerlink" title="Pawn"></a>Pawn</h3><p>Pawn也需要PlayerController来访问,Pawn其实是一个角色的表现,比如动画,模型以及其他组件,Pawn也是客户端和服务端都存在一份</p>
+<h3 id="HUD"><a href="#HUD" class="headerlink" title="HUD"></a>HUD</h3><p>HUD只存在于客户端,服务端是没有这个东西的,用来做UMG或者Slate的管理</p>
+<h3 id="GameViewoirtClient"><a href="#GameViewoirtClient" class="headerlink" title="GameViewoirtClient"></a>GameViewoirtClient</h3><p>GameViewoirtClient是一个游戏视口,在游戏中只存在于客户端,输出响应和渲染</p>
+<h3 id="GameUserSettings"><a href="#GameUserSettings" class="headerlink" title="GameUserSettings"></a>GameUserSettings</h3><p>GameUserSettings可以做些配置，自定义的一些配置</p>
+<h3 id="WorldSettings"><a href="#WorldSettings" class="headerlink" title="WorldSettings"></a>WorldSettings</h3><p>调节当前关卡的属性</p>
 ]]></content>
       <categories>
         <category>UE4</category>
