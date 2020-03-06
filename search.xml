@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>UE4游戏架构</title>
+    <url>/2020/03/06/UE4%E6%B8%B8%E6%88%8F%E6%9E%B6%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="UE4MMoRPG游戏-Online"><a href="#UE4MMoRPG游戏-Online" class="headerlink" title="UE4MMoRPG游戏(Online)"></a>UE4MMoRPG游戏(Online)</h1><h2 id="World"><a href="#World" class="headerlink" title="World"></a>World</h2><p>一个容器,容器里容纳了所有物体,这些物体都有一个特点就是继承至Actor<br>###GameLnstance<br>一个游戏的实例,凌驾于所有游戏之上，再切换关卡的时候GameLnstance里的数据依然保留,需要在切换关卡保留的数据可以存放在GameLnstance</p>
+]]></content>
+      <categories>
+        <category>UE4</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UPROPERTY</title>
     <url>/2020/03/06/Unreal-UPROPERTY/</url>
     <content><![CDATA[<h1 id="UPROPERTY"><a href="#UPROPERTY" class="headerlink" title="UPROPERTY"></a>UPROPERTY</h1><p>UPROPERTY 用途广泛,它允许变量被复制、被序列化，并可从蓝图中进行访问.垃圾回收器还使用它们来追踪对 UObject 的引用数.</p>
